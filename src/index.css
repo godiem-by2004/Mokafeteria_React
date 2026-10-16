@@ -1,1 +1,408 @@
-//Aún no hay diseño porque faltan los componentes y las páginas
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: rgb(200, 137, 74);        /* fondo general */
+  --header-color: rgb(241, 186, 131);   /* navbar y barra de categorías */
+  --seccion-clara: rgb(202, 148, 93);   /* ubicación y horario */
+  --seccion-oscura: rgba(62, 39, 35, 0.3);
+  --coffee-dark: #3e2723;
+  --coffee-accent: #5d4037;
+  --caramel: #c68b59;
+  --cream: #f9f6f0;
+  --card-bg: #ffffff;
+
+  --bs-body-font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --bs-link-color: var(--coffee-accent);
+  --bs-link-hover-color: var(--coffee-dark);
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > main,
+main {
+  flex: 1;
+}
+
+:focus-visible {
+  outline: 3px solid var(--coffee-dark);
+  outline-offset: 2px;
+}
+
+.bg-moka        { background-color: var(--coffee-dark) !important; }
+.bg-caramel     { background-color: var(--caramel) !important; }
+.bg-light-cream { background-color: var(--cream) !important; }
+.text-moka      { color: var(--coffee-dark) !important; }
+.text-coffee    { color: var(--coffee-dark); }
+.text-caramel   { color: var(--caramel) !important; }
+
+.brand-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bajada {
+  color: var(--coffee-dark);
+}
+
+.brand-navbar {
+  background-color: var(--header-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand-navbar .navbar-brand,
+.brand-navbar .nav-link {
+  color: var(--coffee-dark);
+  font-weight: 700;
+}
+
+.brand-navbar .nav-link {
+  border-bottom: 2px solid transparent;
+}
+
+.brand-navbar .nav-link:hover,
+.brand-navbar .nav-link.active {
+  color: var(--coffee-dark);
+  border-bottom-color: var(--coffee-dark);
+}
+
+.brand-navbar .navbar-toggler {
+  border-color: rgba(62, 39, 35, 0.5);
+}
+
+.btn-cart {
+  background-color: var(--coffee-dark);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 6px 18px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-cart:hover,
+.btn-cart:focus {
+  background-color: var(--coffee-accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-acceso {
+  padding: 6px 14px;
+  border: 1px solid var(--coffee-dark);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--coffee-dark);
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-acceso:hover,
+.btn-acceso.active {
+  background-color: var(--coffee-dark);
+  color: #ffffff;
+}
+
+.btn-salir {
+  padding: 4px 6px;
+  border: none;
+  background: none;
+  color: var(--coffee-dark);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.btn-salir:hover {
+  color: var(--coffee-accent);
+}
+
+/* formularios */
+.form-control:focus {
+  border-color: var(--caramel);
+  box-shadow: 0 0 0 0.25rem rgba(198, 139, 89, 0.25);
+}
+
+/* Buscador del navbar */
+.search-icon {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: transparent;
+  color: var(--coffee-dark);
+}
+
+.search-input {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: var(--coffee-dark);
+  box-shadow: 0 0 0 0.25rem rgba(62, 39, 35, 0.25);
+}
+
+/* botones propios */
+.btn-moka,
+.btn-primary-custom {
+  background-color: var(--coffee-dark);
+  border: 1px solid var(--coffee-dark);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-moka:hover,
+.btn-moka:focus,
+.btn-primary-custom:hover:not(:disabled) {
+  background-color: var(--coffee-accent);
+  border-color: var(--coffee-accent);
+  color: #ffffff;
+}
+
+.btn-primary-custom:disabled {
+  background-color: var(--coffee-dark);
+  border-color: var(--coffee-dark);
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+/* Barra de categorías */
+.categories-bar {
+  background-color: rgba(241, 186, 131, 0.9);
+}
+
+.category-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-category {
+  flex: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--coffee-dark);
+  border: 1px solid var(--coffee-dark);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-category:hover,
+.btn-category.active {
+  background-color: var(--coffee-dark);
+  border-color: var(--coffee-dark);
+  color: #ffffff;
+}
+
+/* Tarjetas de producto */
+.card-product {
+  border: none;
+  border-radius: 16px;
+  background-color: var(--card-bg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.card-product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-product .card-img-top {
+  height: 190px;
+  object-fit: cover;
+}
+
+.badge-price {
+  background-color: #f6e9d9;
+  color: var(--coffee-dark);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.btn-add-cart {
+  background-color: var(--coffee-dark);
+  color: #ffffff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-add-cart:hover,
+.btn-add-cart:focus {
+  background-color: var(--coffee-accent);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Foto grande de la página de detalle */
+.detalle-imagen {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* secciones con fondo propio */
+.seccion-ubicacion {
+  background-color: var(--seccion-clara);
+}
+
+.seccion-ubicacion strong {
+  color: var(--coffee-dark);
+  font-size: 1.1rem;
+}
+
+.seccion-ubicacion p {
+  color: var(--coffee-dark);
+}
+
+.seccion-reserva {
+  background-color: var(--seccion-oscura);
+}
+
+.seccion-nosotros {
+  background-color: var(--bg-color);
+  scroll-margin-top: 70px;
+}
+
+.seccion-acceso {
+  background-color: var(--cream);
+  flex: 1;
+}
+
+/* Portada de la página de inicio */
+.hero {
+  padding: 96px 0;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(62, 39, 35, 0.62), rgba(62, 39, 35, 0.62))
+}
+
+.hero__texto {
+  max-width: 36rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Carrusel */
+.carrusel-img {
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .carrusel-img {
+    height: 400px;
+  }
+}
+
+/* Modal del carrito */
+.modal-carrito .modal-content {
+  border: none;
+  border-radius: 12px;
+}
+
+.modal-carrito .modal-title {
+  font-weight: 700;
+}
+
+/* Login y registro */
+.auth-card {
+  box-shadow: 0 10px 30px rgba(59, 36, 22, 0.08) !important;
+}
+
+.auth-card .nav-tabs {
+  border-bottom: none;
+}
+
+.auth-card .nav-tabs .nav-link {
+  flex: 1;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 1rem;
+  font-weight: 600;
+  color: #777777;
+  background-color: #f1ede7;
+}
+
+.auth-card .nav-tabs .nav-link.active {
+  border-bottom-color: var(--coffee-accent);
+  color: var(--coffee-accent);
+  background-color: #ffffff;
+}
+
+/* Tarjetas informativas y contacto */
+.about-card,
+.contact-card {
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link:hover {
+  background-color: #f7f2ea;
+  color: var(--coffee-dark);
+  transform: translateX(4px);
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(62, 39, 35, 0.5);
+  color: #ffffff;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
