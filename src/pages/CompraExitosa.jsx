@@ -5,7 +5,6 @@ import useTitulo from '../hooks/useTitulo'
 
 function CompraExitosa() {
   useTitulo('Pedido confirmado')
-  // useLocation permite leer el "state" enviado con navigate().
   const { state } = useLocation()
 
   return (
