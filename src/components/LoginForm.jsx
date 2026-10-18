@@ -9,8 +9,6 @@ import { estadoCampo, validarClave, validarCorreo } from '../utils/validaciones'
 function LoginForm() {
   const navigate = useNavigate()
   const { iniciarSesion } = useUsuario()
-
-  // Formulario controlado: un solo estado para todos los campos.
   const [formulario, setFormulario] = useState({ correo: '', password: '' })
   const [intentado, setIntentado] = useState(false)
   const [error, setError] = useState('')
@@ -32,7 +30,7 @@ function LoginForm() {
       setError(resultado.mensaje)
       return
     }
-    navigate('/', { replace: true }) // useNavigate: ir al inicio sin que "Atrás" vuelva al login
+    navigate('/', { replace: true })
   }
 
   return (
