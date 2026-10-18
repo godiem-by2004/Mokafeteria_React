@@ -1,45 +1,26 @@
-/* =========================================================
-   MOKAFETERÍA · src/index.css  (versión con Bootstrap)
-
-   Reemplaza TODO el contenido del index.css que trae Vite.
-   En main.jsx impórtalo DESPUÉS de Bootstrap:
-
-     import 'bootstrap/dist/css/bootstrap.min.css'
-     import 'bootstrap-icons/font/bootstrap-icons.css'
-     import './index.css'
-
-   Bootstrap pone la grilla, el modal, el carrusel, los formularios
-   y las utilidades (container, row, d-flex, mb-3...). Este archivo
-   solo agrega la paleta de Mokafetería y los estilos propios.
-   ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* ---------- 1. Paleta y tipografía ---------- */
+
 :root {
-  --bg-color: rgb(200, 137, 74);        /* fondo general */
-  --header-color: rgb(241, 186, 131);   /* navbar y barra de categorías */
-  --seccion-clara: rgb(202, 148, 93);   /* ubicación y horario */
+  --bg-color: rgb(200, 137, 74);
+  --header-color: rgb(241, 186, 131);  
+  --seccion-clara: rgb(202, 148, 93); 
   --seccion-oscura: rgba(62, 39, 35, 0.3);
   --coffee-dark: #3e2723;
   --coffee-accent: #5d4037;
   --caramel: #c68b59;
   --cream: #f9f6f0;
   --card-bg: #ffffff;
-
-  /* Variables de Bootstrap: cambian la fuente y el color de enlaces en toda la app */
   --bs-body-font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --bs-link-color: var(--coffee-accent);
   --bs-link-hover-color: var(--coffee-dark);
 }
 
-/* ---------- 2. Base ---------- */
 body {
   background-color: var(--bg-color);
   margin: 0;
 }
 
-/* Vite monta la app en #root: así el footer siempre queda al final */
 #root {
   min-height: 100vh;
   display: flex;
@@ -56,7 +37,6 @@ main {
   outline-offset: 2px;
 }
 
-/* ---------- 3. Clases de color utilitarias ---------- */
 .bg-moka        { background-color: var(--coffee-dark) !important; }
 .bg-caramel     { background-color: var(--caramel) !important; }
 .bg-light-cream { background-color: var(--cream) !important; }
@@ -64,17 +44,15 @@ main {
 .text-coffee    { color: var(--coffee-dark); }
 .text-caramel   { color: var(--caramel) !important; }
 
-/* Títulos y bajadas sobre el fondo naranja */
 .brand-title {
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .bajada {
-  color: var(--coffee-dark); /* más legible que el blanco sobre naranja */
+  color: var(--coffee-dark); 
 }
 
-/* ---------- 4. Navbar (<Navbar className="brand-navbar sticky-top">) ---------- */
 .brand-navbar {
   background-color: var(--header-color) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -100,7 +78,6 @@ main {
   border-color: rgba(62, 39, 35, 0.5);
 }
 
-/* Botón del carrito (con <Badge> de react-bootstrap encima) */
 .btn-cart {
   background-color: var(--coffee-dark);
   color: #ffffff;
@@ -118,7 +95,6 @@ main {
   transform: translateY(-1px);
 }
 
-/* Botón de acceso (junto al carrito) y botón para cerrar sesión */
 .btn-acceso {
   padding: 6px 14px;
   border: 1px solid var(--coffee-dark);
@@ -148,13 +124,11 @@ main {
   color: var(--coffee-accent);
 }
 
-/* ---------- 5. Formularios ---------- */
 .form-control:focus {
   border-color: var(--caramel);
   box-shadow: 0 0 0 0.25rem rgba(198, 139, 89, 0.25);
 }
 
-/* Buscador del navbar (va después de .form-control:focus para ganarle) */
 .search-icon {
   background-color: rgba(255, 255, 255, 0.8);
   border-color: transparent;
@@ -172,7 +146,6 @@ main {
   box-shadow: 0 0 0 0.25rem rgba(62, 39, 35, 0.25);
 }
 
-/* ---------- 6. Botones propios ---------- */
 .btn-moka,
 .btn-primary-custom {
   background-color: var(--coffee-dark);
@@ -198,7 +171,6 @@ main {
   opacity: 0.5;
 }
 
-/* ---------- 7. Barra de categorías ---------- */
 .categories-bar {
   background-color: rgba(241, 186, 131, 0.9);
 }
@@ -232,7 +204,6 @@ main {
   color: #ffffff;
 }
 
-/* ---------- 8. Tarjetas de producto (<Card className="card-product h-100 shadow-sm">) ---------- */
 .card-product {
   border: none;
   border-radius: 16px;
@@ -281,13 +252,11 @@ main {
   transform: scale(1.1);
 }
 
-/* Foto grande de la página de detalle */
 .detalle-imagen {
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-/* ---------- 9. Secciones con fondo propio ---------- */
 .seccion-ubicacion {
   background-color: var(--seccion-clara);
 }
@@ -315,7 +284,6 @@ main {
   flex: 1;
 }
 
-/* ---------- Portada de la página de inicio ---------- */
 .hero {
   padding: 96px 0;
   color: #ffffff;
@@ -329,7 +297,6 @@ main {
   margin-bottom: 1.5rem;
 }
 
-/* ---------- 10. Carrusel (<Carousel> de react-bootstrap) ---------- */
 .carrusel-img {
   height: 260px;
   object-fit: cover;
@@ -342,7 +309,6 @@ main {
   }
 }
 
-/* ---------- 11. Modal del carrito (<Modal dialogClassName="modal-carrito">) ---------- */
 .modal-carrito .modal-content {
   border: none;
   border-radius: 12px;
@@ -352,7 +318,6 @@ main {
   font-weight: 700;
 }
 
-/* ---------- 12. Login y registro (<Tabs> de react-bootstrap) ---------- */
 .auth-card {
   box-shadow: 0 10px 30px rgba(59, 36, 22, 0.08) !important;
 }
@@ -378,7 +343,6 @@ main {
   background-color: #ffffff;
 }
 
-/* ---------- 13. Tarjetas informativas y contacto ---------- */
 .about-card,
 .contact-card {
   background-color: #ffffff;
@@ -406,7 +370,6 @@ main {
   transform: translateX(4px);
 }
 
-/* ---------- 14. Footer ---------- */
 .footer {
   background-color: rgba(62, 39, 35, 0.5);
   color: #ffffff;
@@ -421,7 +384,6 @@ main {
   text-decoration: underline;
 }
 
-/* Botón deshabilitado cuando no hay stock */
 .btn-add-cart:disabled,
 .btn-moka:disabled {
   background-color: #ced4da !important;
@@ -433,7 +395,6 @@ main {
   opacity: 0.7;
 }
 
-/* Estilo unificado para botones sin stock */
 .btn-outline-dark:disabled,
 .btn-moka:disabled,
 .btn-add-cart:disabled {
@@ -452,11 +413,10 @@ main {
   border-color: #ced4da !important;
   color: #6c757d !important;
   opacity: 0.65;
-  pointer-events: auto !important; /* Permite que el mouse detecte el botón */
-  cursor: not-allowed !important;  /* Símbolo de bloqueo nativo del sistema operativo */
+  pointer-events: auto !important; 
+  cursor: not-allowed !important;  
 }
 
-/* ---------- 15. Accesibilidad: respetar "reducir movimiento" ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
