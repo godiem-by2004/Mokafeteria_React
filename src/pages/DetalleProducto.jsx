@@ -38,7 +38,6 @@ function DetalleProducto() {
     navigate(key === 'default' ? '/productos' : -1)
   }
 
-  // Comprobación de límites sin mostrar el número de stock
   const stockMaximo = producto?.stock ?? 0
   const sinStock = stockMaximo <= 0
   const enCarrito = items.find((item) => item.producto.id === producto?.id)?.cantidad ?? 0
