@@ -20,9 +20,8 @@ function Productos() {
   const [categoria, setCategoria] = useState('todos')
   const { agregarAlCarrito } = useCarrito()
 
-  // useEffect: cargar los productos UNA vez, cuando la página aparece.
   useEffect(() => {
-    let ignorar = false // evita actualizar el estado si el usuario ya salió de la página
+    let ignorar = false
 
     obtenerProductos()
       .then((datos) => {
@@ -40,7 +39,6 @@ function Productos() {
     }
   }, [])
 
-  // Valor derivado: se calcula en cada render, no se guarda en el estado.
   const termino = busqueda.toLowerCase().trim()
   const productosFiltrados = productos.filter(
     (p) =>
