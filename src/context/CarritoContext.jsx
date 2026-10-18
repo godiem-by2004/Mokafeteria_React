@@ -5,8 +5,7 @@ const CarritoContext = createContext(null)
 
 const CLAVE_CARRITO = 'carrito'
 
-// Lee el carrito guardado. Solo se guardan id y cantidad: los datos del producto
-// se vuelven a tomar de productos.js para mantener la coherencia.
+
 function leerCarritoGuardado() {
   try {
     const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO))
@@ -23,26 +22,22 @@ function leerCarritoGuardado() {
 export function CarritoProvider({ children }) {
   const [items, setItems] = useState(leerCarritoGuardado)
 
-  // Guarda en localStorage cada vez que items cambia
   useEffect(() => {
     try {
       const resumen = items.map(({ producto, cantidad }) => ({ id: producto.id, cantidad }))
       localStorage.setItem(CLAVE_CARRITO, JSON.stringify(resumen))
     } catch {
-      // Si el navegador bloquea el almacenamiento, continúa en memoria
     }
   }, [items])
 
   function agregarAlCarrito(producto) {
     const stockDisponible = producto.stock ?? Infinity
-    // Si no hay stock de origen, no hace nada
     if (stockDisponible <= 0) return
 
     setItems((actuales) => {
       const existe = actuales.find((item) => item.producto.id === producto.id)
       const cantidadActual = existe ? existe.cantidad : 0
 
-      // Si ya alcanzó el límite disponible, no permite sumar más
       if (cantidadActual >= stockDisponible) {
         return actuales
       }
@@ -56,7 +51,6 @@ export function CarritoProvider({ children }) {
     })
   }
 
-  // Resta una unidad; si queda en 0, el producto sale del carrito
   function disminuirCantidad(id) {
     setItems((actuales) =>
       actuales
