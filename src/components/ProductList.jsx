@@ -2,7 +2,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProductCard from './ProductCard'
 
-// Recibe un ARREGLO y crea una tarjeta por cada elemento.
 function ProductList({ productos, onAgregar }) {
   if (productos.length === 0) {
     return (
@@ -16,7 +15,6 @@ function ProductList({ productos, onAgregar }) {
   return (
     <Row xs={1} sm={2} md={3} lg={4} className="g-4">
       {productos.map((producto) => (
-        // key: identificador ÚNICO y ESTABLE para cada tarjeta.
         <Col key={producto.id}>
           <ProductCard producto={producto} onAgregar={onAgregar} />
         </Col>
