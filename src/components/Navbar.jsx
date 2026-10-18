@@ -17,9 +17,9 @@ const enlaces = [
 
 function Navbar() {
   const navigate = useNavigate()
-  const [abierto, setAbierto] = useState(false) // menú desplegable en móvil
-  const { cantidadTotal } = useCarrito() // useContext: carrito global
-  const { usuario, cerrarSesion } = useUsuario() // useContext: sesión
+  const [abierto, setAbierto] = useState(false) 
+  const { cantidadTotal } = useCarrito()
+  const { usuario, cerrarSesion } = useUsuario() 
 
   const cerrarMenu = () => setAbierto(false)
   const primerNombre = usuario ? usuario.nombre.split(' ')[0] : ''
@@ -38,7 +38,6 @@ function Navbar() {
           <span>Mokafetería</span>
         </BsNavbar.Brand>
 
-        {/* Acceso y carrito quedan fuera del menú desplegable: se ven siempre, también en móvil */}
         <div className="d-flex align-items-center gap-2 ms-auto me-2 ms-lg-2 me-lg-0 order-lg-last">
           <NavLink
             to="/acceso"
