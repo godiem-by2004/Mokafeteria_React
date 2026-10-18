@@ -2,7 +2,6 @@ import Container from 'react-bootstrap/Container'
 import { medios } from '../data/contacto'
 
 function Footer() {
-  // El footer muestra los mismos medios de contacto, menos la dirección.
   const enlaces = medios.filter((m) => m.etiqueta !== 'Dirección')
 
   return (
