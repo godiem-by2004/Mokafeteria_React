@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import CampoFormulario from './CampoFormulario'
 
-// Fecha de hoy en formato AAAA-MM-DD usando la hora local (no UTC).
 function fechaHoy() {
   const ahora = new Date()
   const mes = String(ahora.getMonth() + 1).padStart(2, '0')
@@ -13,7 +12,7 @@ function fechaHoy() {
 
 function ReservaForm() {
   const [formulario, setFormulario] = useState({ fecha: '', hora: '', personas: '' })
-  const [mensaje, setMensaje] = useState(null) // { tipo: 'success' | 'danger', texto }
+  const [mensaje, setMensaje] = useState(null) 
 
   function manejarCambio(evento) {
     const { name, value } = evento.target
