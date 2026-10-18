@@ -8,7 +8,6 @@ function ProductCard({ producto, onAgregar }) {
   const { items } = useCarrito()
   const { id, nombre, descripcion, precio, imagen, stock = 0 } = producto
 
-  // Verificamos si no hay stock o si el usuario ya alcanzó el límite en su carrito
   const sinStock = stock <= 0
   const enCarrito = items.find((item) => item.producto.id === id)?.cantidad ?? 0
   const limiteAlcanzado = !sinStock && enCarrito >= stock
@@ -23,7 +22,6 @@ function ProductCard({ producto, onAgregar }) {
         </Card.Title>
         <Card.Text className="text-muted small flex-grow-1">{descripcion}</Card.Text>
 
-        {/* Solo avisos de estado sin revelar la cantidad numérica */}
         <div className="mb-2" style={{ minHeight: '1.25rem' }}>
           {sinStock && <span className="text-danger fw-semibold small">Agotado</span>}
           {limiteAlcanzado && <span className="text-danger fw-semibold small">Límite alcanzado</span>}
