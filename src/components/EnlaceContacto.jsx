@@ -1,4 +1,3 @@
-// Una fila de contacto (dirección, teléfono, redes...). Recibe sus datos por props.
 function EnlaceContacto({ icono, claseIcono = 'text-caramel', etiqueta, valor, href, externo }) {
   return (
     <a href={href} className="contact-link" {...(externo && { target: '_blank', rel: 'noopener noreferrer' })}>
