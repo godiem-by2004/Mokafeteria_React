@@ -11,13 +11,11 @@ import useTitulo from '../hooks/useTitulo'
 function Carrito() {
   useTitulo('Carrito')
   const navigate = useNavigate()
-  // useContext: leemos y modificamos el MISMO carrito que usan Productos y la Navbar.
   const { items, agregarAlCarrito, disminuirCantidad, quitarDelCarrito, vaciarCarrito, total } = useCarrito()
 
   function confirmarPedido() {
     const totalPagado = total
     vaciarCarrito()
-    // state: enviamos datos a la página siguiente (se leen con useLocation).
     navigate('/compra-exitosa', { state: { totalPagado } })
   }
 
