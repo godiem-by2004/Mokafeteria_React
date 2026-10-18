@@ -11,7 +11,7 @@ import { formatearPrecio } from '../utils/formato'
 import useTitulo from '../hooks/useTitulo'
 
 function DetalleProducto() {
-  const { id } = useParams() // lee el ":id" de la URL /productos/:id
+  const { id } = useParams()
   const navigate = useNavigate()
   const { key } = useLocation()
   const { items, agregarAlCarrito } = useCarrito()
@@ -20,9 +20,8 @@ function DetalleProducto() {
 
   useTitulo(producto ? producto.nombre : 'Producto')
 
-  // Se vuelve a ejecutar si cambia el id de la URL.
   useEffect(() => {
-    let ignorar = false // evita actualizar el estado si el usuario ya salió de la página
+    let ignorar = false
     setProducto(null)
     setError(null)
 
@@ -35,13 +34,19 @@ function DetalleProducto() {
     }
   }, [id])
 
-  // navigate(-1) equivale al botón "Atrás" del navegador.
-  // Si la persona llegó escribiendo la URL directamente, no hay página anterior: vamos al catálogo.
   function volver() {
     navigate(key === 'default' ? '/productos' : -1)
   }
 
+  // Comprobación de límites sin mostrar el número de stock
+  const stockMaximo = producto?.stock ?? 0
+  const sinStock = stockMaximo <= 0
+  const enCarrito = items.find((item) => item.producto.id === producto?.id)?.cantidad ?? 0
+  const limiteAlcanzado = !sinStock && enCarrito >= stockMaximo
+  const noPermiteAgregar = sinStock || limiteAlcanzado
+
   function agregarYIrAlCarrito() {
+    if (noPermiteAgregar) return
     agregarAlCarrito(producto)
     navigate('/carrito')
   }
@@ -62,7 +67,6 @@ function DetalleProducto() {
   }
 
   const nombreCategoria = categorias.find((c) => c.id === producto.categoria)?.nombre ?? producto.categoria
-  const enCarrito = items.find((item) => item.producto.id === producto.id)?.cantidad ?? 0
 
   return (
     <Container className="py-5">
@@ -76,26 +80,41 @@ function DetalleProducto() {
             <span className="badge bg-moka mb-2">{nombreCategoria}</span>
             <h1 className="h2 fw-bold">{producto.nombre}</h1>
             <p className="text-muted">{producto.descripcion}</p>
-            <p>
+
+            <div className="d-flex align-items-center gap-3 mb-3">
               <span className="badge-price fs-5">{formatearPrecio(producto.precio)}</span>
-            </p>
+              {sinStock && <span className="badge bg-danger px-3 py-2 fs-6">Agotado</span>}
+              {limiteAlcanzado && <span className="badge bg-secondary px-3 py-2 fs-6">Límite alcanzado</span>}
+            </div>
 
             {enCarrito > 0 && (
               <p className="small text-moka fw-semibold">
                 <i className="bi bi-cart-check me-1"></i>
-                Ya tienes {enCarrito} en tu carrito.
+                Ya tienes {enCarrito} en tu carrito. {limiteAlcanzado && '(No puedes agregar más unidades)'}
               </p>
             )}
 
-            <div className="d-flex flex-wrap gap-2">
+            <div className="d-flex flex-wrap gap-2 mt-4">
               <button type="button" className="btn btn-outline-secondary" onClick={volver}>
                 Volver
               </button>
-              <button type="button" className="btn btn-outline-dark" onClick={() => agregarAlCarrito(producto)}>
-                Agregar al carrito
+
+              <button
+                type="button"
+                className="btn btn-outline-dark"
+                onClick={() => agregarAlCarrito(producto)}
+                disabled={noPermiteAgregar}
+              >
+                {sinStock ? 'Agotado' : limiteAlcanzado ? 'Límite alcanzado' : 'Agregar al carrito'}
               </button>
-              <button type="button" className="btn btn-moka" onClick={agregarYIrAlCarrito}>
-                Agregar y ver carrito
+
+              <button
+                type="button"
+                className="btn btn-moka"
+                onClick={agregarYIrAlCarrito}
+                disabled={noPermiteAgregar}
+              >
+                {sinStock ? 'Sin stock' : limiteAlcanzado ? 'Límite alcanzado' : 'Agregar y ver carrito'}
               </button>
             </div>
           </div>

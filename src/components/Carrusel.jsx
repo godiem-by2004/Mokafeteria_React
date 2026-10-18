@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel'
 
+// Carrusel automático de fotos: recibe un arreglo [{ src, alt }].
 function Carrusel({ imagenes }) {
   if (imagenes.length === 0) return null
 

@@ -32,7 +32,7 @@ function LoginForm() {
       setError(resultado.mensaje)
       return
     }
-    navigate('/', { replace: true })
+    navigate('/', { replace: true }) // useNavigate: ir al inicio sin que "Atrás" vuelva al login
   }
 
   return (

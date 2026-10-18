@@ -1,5 +1,8 @@
 import Form from 'react-bootstrap/Form'
 
+// Campo reutilizable (etiqueta + input + mensajes).
+// valido: null = sin marcar, true = correcto, false = incorrecto.
+// El resto de props (name, type, value, onChange, placeholder, min, max...) pasan al input.
 function CampoFormulario({ id, etiqueta, valido = null, mensajeError, ayuda, ...resto }) {
   return (
     <Form.Group className="mb-3" controlId={id}>

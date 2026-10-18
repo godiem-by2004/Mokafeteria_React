@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container'
 
+// Título de página reutilizable: recibe el texto por props.
 function EncabezadoMarca({ titulo, bajada }) {
   return (
     <Container className="text-center pt-5 pb-3">

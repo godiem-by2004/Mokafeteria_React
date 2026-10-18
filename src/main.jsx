@@ -8,6 +8,8 @@ import { CarritoProvider } from './context/CarritoContext'
 import { UsuarioProvider } from './context/UsuarioContext'
 import App from './App'
 
+// BrowserRouter: rutas y useNavigate en toda la app.
+// UsuarioProvider y CarritoProvider: estado global (sesión y carrito).
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

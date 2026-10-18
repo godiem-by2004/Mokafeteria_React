@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from 'react'
 
 const UsuarioContext = createContext(null)
 
-const CLAVE_USUARIOS = 'usuarios' //lista de cuentas registradas
-const CLAVE_SESION = 'sesion' //usuario con sesión iniciada
+const CLAVE_USUARIOS = 'usuarios' // lista de cuentas registradas
+const CLAVE_SESION = 'sesion' // usuario con sesión iniciada
 
 function leer(clave, porDefecto) {
   try {
@@ -15,6 +15,7 @@ function leer(clave, porDefecto) {
 }
 
 export function UsuarioProvider({ children }) {
+  // Función inicial: lee la sesión guardada solo la primera vez.
   const [usuario, setUsuario] = useState(() => leer(CLAVE_SESION, null))
 
   function abrirSesion({ nombre, correo }) {

@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import CampoFormulario from './CampoFormulario'
 
+// Fecha de hoy en formato AAAA-MM-DD usando la hora local (no UTC).
 function fechaHoy() {
   const ahora = new Date()
   const mes = String(ahora.getMonth() + 1).padStart(2, '0')

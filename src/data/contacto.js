@@ -1,3 +1,4 @@
+// Medios de contacto: los usan la página Contacto y el Footer.
 export const medios = [
   { icono: 'bi-geo-alt-fill', etiqueta: 'Dirección', valor: 'Av. Libertad 1254, Viña del Mar, Chile', href: 'https://www.google.com/maps/search/?api=1&query=Av.+Libertad+1254,+Vi%C3%B1a+del+Mar,+Chile', externo: true },
   { icono: 'bi-telephone-fill', etiqueta: 'Teléfono', valor: '+56 9 8765 4321', href: 'tel:+56987654321' },

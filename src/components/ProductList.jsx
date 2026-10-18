@@ -2,6 +2,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProductCard from './ProductCard'
 
+// Recibe un ARREGLO y crea una tarjeta por cada elemento.
 function ProductList({ productos, onAgregar }) {
   if (productos.length === 0) {
     return (
