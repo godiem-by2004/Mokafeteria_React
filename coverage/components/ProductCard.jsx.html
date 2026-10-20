@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -134,18 +134,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,13 +155,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,6 +164,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,17 +198,17 @@ import Card from 'react-bootstrap/Card'
 import { useCarrito } from '../context/CarritoContext'
 import { formatearPrecio } from '../utils/formato'
 &nbsp;
-function <span class="fstat-no" title="function not covered" >ProductCard({</span> producto, onAgregar }) {
-  const <span class="cstat-no" title="statement not covered" >navigate = useNavigate()</span>
-  const { items <span class="cstat-no" title="statement not covered" >} = useCarrito()</span>
-  const { id, nombre, descripcion, precio, imagen, stock = <span class="branch-0 cbranch-no" title="branch not covered" >0 }</span> = <span class="cstat-no" title="statement not covered" >producto</span>
+function ProductCard({ producto, onAgregar }) {
+  const navigate = useNavigate()
+  const { items } = useCarrito()
+  const { id, nombre, descripcion, precio, imagen, stock = 0 } = producto
 &nbsp;
-  const sinStock = <span class="cstat-no" title="statement not covered" >stock &lt;= 0</span>
-  const enCarrito = <span class="cstat-no" title="statement not covered" >items.find(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.producto.id === id)</span>?.cantidad ?? 0</span>
-  const limiteAlcanzado = <span class="cstat-no" title="statement not covered" >!sinStock &amp;&amp; enCarrito &gt;= stock</span>
-  const noPermiteAgregar = <span class="cstat-no" title="statement not covered" >sinStock || limiteAlcanzado</span>
+  const sinStock = stock &lt;= 0
+  const enCarrito = items.find((item) =&gt; item.producto.id === id)?.cantidad ?? 0
+  const limiteAlcanzado = !sinStock &amp;&amp; enCarrito &gt;= stock
+  const noPermiteAgregar = sinStock || limiteAlcanzado
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;Card className="card-product h-100 shadow-sm"&gt;
       &lt;Card.Img variant="top" src={imagen} alt={nombre} /&gt;
       &lt;Card.Body className="d-flex flex-column"&gt;
@@ -237,7 +237,7 @@ function <span class="fstat-no" title="function not covered" >ProductCard({</spa
             &lt;button
               type="button"
               className="btn btn-add-cart"
-              onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >o</span>nAgregar(producto)}</span>
+              onClick={() =&gt; onAgregar(producto)}
               disabled={noPermiteAgregar}
               title={
                 sinStock
@@ -265,7 +265,7 @@ export default ProductCard
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-19T01:21:04.342Z
+                at 2026-10-20T01:05:26.299Z
             </div>
         <script src="../prettify.js"></script>
         <script>
